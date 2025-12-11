@@ -9,7 +9,7 @@ Zur vereinfachten Anwendung des Klassifikators zur Textfilterung ist ein Jupyter
 Wir empfehlen den Klassifikator nur bei Verfügbarkeit einer GPU anzuwenden, da der Embedding Prozess ressourcenintensiv ist.
 
 **Daten:** 
-- Input Texte sollten Absatzlänge haben und idealerweise eine Länge von 528 Tokens nicht überschreiten. Zwar ist eine Klassifikation auch bei Überlänge möglich, jedoch schneidet das Embedding Modell den Text nach der Maximallänge ab, wodurch nur die ersten 512 Tokens bei der Klassifikation berücksichtigt werden können. Da der Klassifikator außerdem auf kürzeren Texten (<500 Tokens) trainiert wurde, empfielt sich die Anwendung auf vergleichbare Textlängen. 
+- Input Texte sollten Absatzlänge haben und idealerweise eine Länge von 512 Tokens nicht überschreiten. Zwar ist eine Klassifikation auch bei Überlänge möglich, jedoch schneidet das Embedding Modell den Text nach der Maximallänge ab, wodurch nur die ersten 512 Tokens bei der Klassifikation berücksichtigt werden können. Da der Klassifikator außerdem auf kürzeren Texten (<500 Tokens) trainiert wurde, empfielt sich die Anwendung auf vergleichbare Textlängen. 
 - Texte zur Klassifikation sollten im pandas DataFrame Format mit einer Spalte 'text' bereitgestellt werden.
 
 ### Ablauf
