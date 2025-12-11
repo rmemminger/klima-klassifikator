@@ -20,4 +20,4 @@ Wir empfehlen den Klassifikator nur bei Verfügbarkeit einer GPU anzuwenden, da 
 4. Klassifikation: Das Modell wird für Inferenz geladen und die Matrix zur Klassifikation eingespeist. Das Output beinhaltet die Texte im ursprünglichen Format, sowie die Stichwortzahlen und das Ergebnis der Klassifikation in der Spalte 'pred_y'.
 
 ## Verwendung und Lizenz
-Bei Anwendung des Klassifikators zitieren Sie bitte dieses Repository: Memminger, Benndorf und Stede (2025).
+Bei Anwendung des Klassifikators zitieren Sie bitte dieses Repository und die Autoren: Memminger, Benndorf und Stede (2025). Der Klassifikator ist lizensiert unter BY-NC-SA 4.0 und darf nicht zu kommerziellen Zwecken verwendet werden.
