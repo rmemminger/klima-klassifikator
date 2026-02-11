@@ -2,7 +2,20 @@
 Dieses Repository beinhaltet einen trainierten Textklassifikator, mit dem deutsche politische Texte zum Thema Klimawandel gefiltert werden können. Der Klassifikator wurde auf Absätzen von Texten der Partei Alternative für Deutschland trainiert, ist jedoch allgemein auf kurze politische Texte anwendbar. Es handelt sich um ein XGBoost Modell, welches eine binäre Textklassifikation vornimmt. Eingespeiste Texte werden entweder mit dem Label 0 (nicht themenrelevant) oder 1 (themenrelevant) versehen. Genaueres zur Erstellung, sowie Auswertung des Modells ist im [Abstract](Abstract.md) nachzulesen.
 
 ## Anwendung des Klassifikators
-Zur vereinfachten Anwendung des Klassifikators zur Textfilterung ist ein Jupyter Notebook bereitgestellt. 
+Der Klassifikator kann mithilfe des Skripts `klassifikator.py` einfach über die Command Line ausgeführt werden. Hierbei werden folgende Argumente genutzt:
+
+1. `--csv [Pfad zur Datei]` __oder__ `--txt [Pfad zum Ordner]`
+
+    Dies gibt an, ob Texte aus einer gesammelten csv Datei oder einem Ordner an txt Dateien ausgelesen werden sollen. Der angegebene Dateienpfad muss im Ordner liegen, in dem sich das Skript befindet.
+2. `--embed` __oder__ `--load-embed [Pfad zur Datei]` 
+
+    Beim ersten Ausführen müssen Text Embeddings erstellt werden. Mit dem Argument --embed wird dies durchgeführt und die Embeddings werden gespeichert. Um die Rechenlast zu verringern, können bei erneuten Ausführungen die bereits erstellten Embeddings geladen werden. Daher muss bei --load-embed auch der Pfad zur Embedding Datei (automatisch: embeddings.npy) angegeben werden.
+
+Beispiel CLI:
+
+    klassifikator.py --txt texts --load-embed embeddings.npy
+
+Zur vereinfachten Anwendung des Klassifikators zur Textfilterung ist außerdem ein Jupyter Notebook bereitgestellt. 
 
 ### Voraussetzungen
 **Setup:** Die Anwendung des Klassifikators benötigt eine Python 3 Umgebung. Für ein reibungsloses Setup empfielt sich die Installation der benötigten Packages aus `requirements.txt` in ein virtuelles environment.
