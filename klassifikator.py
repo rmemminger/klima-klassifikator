@@ -84,13 +84,25 @@ def main():
 
     result = pd.concat([data, preds_df], axis=1)
 
+    # NEW SETTING: Safety measure: include at least one (1) keyword on top of pred_y = 1
+    # for this add new classification column to easily understand difference between
+    # pred_y and safety rule
+
+    keywords = ['klima', 'erwärmung', 'treibhaus', 'co2', 'kohle', 
+          'energiewende', 'verkehrswende', 'fridays for future',
+          'extinction rebellion']
+    keycols = [kw + '_count' for kw in keywords]
+    result['class'] = 0
+    # if pred_y == 1 and at least 1 keyword, class = 1, else default 0
+    result.loc[(result['pred_y'] == 1) & (result[keycols].sum(axis=1) > 0), 'class'] = 1
+
     # create output folder if not yet existing
     if not os.path.isdir('output'):
         os.makedirs('output')
 
     # save results to output folder
     result.to_csv('output/texts_classified.csv')
-    result[result['pred_y']==1].to_csv('output/texts_climate.csv')
+    result[result['class']==1].to_csv('output/texts_climate.csv')
     
     return
 

@@ -1,6 +1,8 @@
 # klima-klassifikator
 Dieses Repository beinhaltet einen trainierten Textklassifikator, mit dem deutsche politische Texte zum Thema Klimawandel gefiltert werden können. Der Klassifikator wurde auf Absätzen von Texten der Partei Alternative für Deutschland trainiert, ist jedoch allgemein auf kurze politische Texte anwendbar. Es handelt sich um ein XGBoost Modell, welches eine binäre Textklassifikation vornimmt. Eingespeiste Texte werden entweder mit dem Label 0 (nicht themenrelevant) oder 1 (themenrelevant) versehen. Genaueres zur Erstellung, sowie Auswertung des Modells ist im [Abstract](Abstract.md) nachzulesen.
 
+**Update März 2026:** Um die Klassifikation zu verfeinern, wurde der Klassifikator erweitert. Neben des Ergebnisses der Klassifikation wird nun auch das Vorkommen der Klima-Stichwörter berücksichtigt. Das Output des Klassifikators beinhaltet nun eine weitere Variable `class`, welche 1 (themenrelevant) ist, wenn der Klassifikator positiv klassifiziert (`pred_y` = 1) UND mind. 1 Stichwort im Text enthalten ist. Wenn allerdings kein Stichwort vorkommt, ist `class` = 0 (nicht themenrelevant), auch wenn `pred_y` = 1.
+
 ## Anwendung des Klassifikators
 Der Klassifikator kann mithilfe des Skripts `klassifikator.py` einfach über die Command Line ausgeführt werden. Hierbei werden folgende Argumente genutzt:
 
