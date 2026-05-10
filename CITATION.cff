@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this classifier, please cite it as below."
+authors:
+- family-names: "Memminger"
+  given-names: "Ronja"
+- family-names: "Benndorf"
+  given-names: "Dietmar"
+- family-names: "Stede"
+  given-names: "Manfred"
+title: "klima-klassifikator"
+version: 2.0.0
+date-released: 2025
+url: "https://github.com/rmemminger/klima-klassifikator"
